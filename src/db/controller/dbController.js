@@ -11,6 +11,56 @@ import DB from "../model/dbConnection";
 
 export default {
 
+    async clearTables() {
+        try {       
+            const { rows } = await DB.query('TRUNCATE TABLE posts,"comments",users;');
+            return rows[0];
+          } catch(error) {
+            return error;
+          } 
+        },
+
+    async createUser() {
+        try {       
+            const cmd = {
+                text: 'INSERT INTO users (id, "name", username, email, phone, website, "createdAt", "updatedAt")  VALUES($1, $2, $3, $4, $5, $6, $7, $8)',
+                values: [1,'aadi','aadimurthy', 'hello@gmail.com', '9010664774', 'hello.com', new Date(), new Date()] 
+            }
+            const { rows } = await DB.query(cmd);
+            return rows[0];
+          } catch(error) {
+            return error;
+          } 
+        },
+
+    async createPost() {
+        try {       
+            const cmd = {
+                text: 'INSERT INTO posts ("userId",id,title,body) VALUES($1, $2, $3, $4)',
+                values: [1, 1,'Sample Postttt','Sample bodyyyyy'],
+              };
+            const { rows } = await DB.query(cmd);
+            return rows[0];
+          } catch(error) {
+            return error;
+          } 
+        },
+
+
+    async placeComment() {
+        try {
+
+            const cmd = {
+                text: 'INSERT INTO "comments" (id,"postId",name,email,body) VALUES($1, $2, $3, $4, $5)',
+                values: [1,1,'aadi','hello@gmail.com','Sample Comment!!!!!'],
+              };       
+            const { rows } = await DB.query(cmd);
+            return rows[0];
+          } catch(error) {
+            return error;
+          } 
+        },
+
     async  getallPosts(){
     try {      
         const { rows } = await DB.query('SELECT * FROM posts');

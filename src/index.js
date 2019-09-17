@@ -1,5 +1,40 @@
 "use strict";
 import controller from "./db/controller/dbController";
+const clearDB = async function(){
+  try {      
+    const res = await controller.clearTables();
+    return res;
+  } catch(error) {
+    return error;
+  }
+} 
+
+const creatTestUser = async function(){
+  try {      
+    const res = await controller.createUser();
+    return res;
+  } catch(error) {
+    return error;
+  }
+} 
+
+const creatTestPost = async function(){
+  try {      
+    const res = await controller.createPost();
+    return res;
+  } catch(error) {
+    return error;
+  }
+} 
+
+const creatTestComment = async function(){
+  try {      
+    const res = await controller.placeComment();
+    return res;
+  } catch(error) {
+    return error;
+  }
+} 
 
 const getallPosts = async function(){
   try {      
@@ -47,6 +82,10 @@ const getCommentsByID = async function(postId){
 }
 
 module.exports = function test(){ (async () => {
+  console.log(await clearDB())
+  console.log(await creatTestUser());
+  console.log(await creatTestPost());
+  console.log(await creatTestComment());
   console.log(await getallPosts());
   console.log(await getPostsbyID(1));
   console.log(await getPostsbyUID(1));
