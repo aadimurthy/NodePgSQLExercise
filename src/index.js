@@ -1,8 +1,16 @@
-const config = require('config');
-const db = config.get('db');
-const aadi = function(){
+"use strict";
+import DB from "./db/model/dbConnection";
 
-    console.log("db config is",db);
+const aadi = async function(){
+    try {
+        await DB.connect();       
+        const { rows } = await DB.query('SELECT NOW();');
+        return rows[0];
+      } catch(error) {
+        return error;
+      }
 }
 
-module.exports = aadi();
+module.exports = function test(){ (async () => {
+  console.log(await aadi())
+})();}()

@@ -1,8 +1,4 @@
 {
     "app": {},
-    "db": {
-        "host": "localhost",
-        "port": 5432,
-        "name": "dummy"
-    }
+    "dbURL": "postgres://fchhltfc:vcyFNRGGWwzAIXdQPiTMXcEXz5nYAYLV@satao.db.elephantsql.com:5432/fchhltfc"
 }
