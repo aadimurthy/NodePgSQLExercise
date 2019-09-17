@@ -9,16 +9,12 @@ const client = new Client({
     connectionString: DATABASE_URL
   }); 
 
+client.connect();
   
-client.on('connect', () => {
-    console.log('CONNECTED !!!');
-  });
-  
-
 export default {
-   query(command){
+   query(command, args){
        return new Promise((resolve, reject) => {
-         client.query(command)
+         client.query(command, args)
         .then((res) => {
           resolve(res);
         })
@@ -27,5 +23,4 @@ export default {
         })
       })
     },
-   connect(){client.connect()} 
   }  
