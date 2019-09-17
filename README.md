@@ -2,6 +2,11 @@
 
 To test :
 
+incase if DB is not defined, use table.sql in this repo to define DATABASE using below pqSQL client in bash shell.
+````
+psql "<DB URL>" -f tables.sql
+````
+
 Install node vesrion 10 and excute below in proj root
 
 ````
