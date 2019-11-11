@@ -1,4 +1,6 @@
-CREATE TABLE fchhltfc.users (
+
+
+CREATE TABLE users (
         id int4 NOT NULL,
         "name" varchar(255) NULL,
         username varchar(255) NOT NULL,
@@ -14,9 +16,9 @@ CREATE TABLE fchhltfc.users (
 
 -- Drop table
 
-DROP TABLE fchhltfc.albums;
+--DROP TABLE mydb.albums;
 
-CREATE TABLE fchhltfc.albums (
+CREATE TABLE albums (
         id int4 NOT NULL,
         userid int4 NOT NULL,
         title varchar(255) NULL,
@@ -26,9 +28,9 @@ CREATE TABLE fchhltfc.albums (
 
 -- Drop table
 
-DROP TABLE fchhltfc.photos;
+--DROP TABLE mydb.photos;
 
-CREATE TABLE fchhltfc.photos (
+CREATE TABLE photos (
         id int4 NOT NULL,
         albumid int4 NOT NULL,
         title varchar(255) NULL,
@@ -40,9 +42,9 @@ CREATE TABLE fchhltfc.photos (
 
 -- Drop table
 
-DROP TABLE fchhltfc.posts;
+--DROP TABLE mydb.posts;
 
-CREATE TABLE fchhltfc.posts (
+CREATE TABLE posts (
         id int4 NOT NULL,
         userid int4 NOT NULL,
         title varchar(255) NULL,
@@ -53,9 +55,9 @@ CREATE TABLE fchhltfc.posts (
 
 -- Drop table
 
-DROP TABLE fchhltfc.todos;
+--DROP TABLE mydb.todos;
 
-CREATE TABLE fchhltfc.todos (
+CREATE TABLE todos (
         id int4 NOT NULL,
         userid int4 NOT NULL,
         title varchar(255) NOT NULL,
@@ -65,9 +67,9 @@ CREATE TABLE fchhltfc.todos (
 
 -- Drop table
 
-DROP TABLE fchhltfc."comments";
+--DROP TABLE mydb."comments";
 
-CREATE TABLE fchhltfc."comments" (
+CREATE TABLE "comments" (
         id int4 NOT NULL,
         postid int4 NOT NULL,
         "name" varchar(255) NOT NULL,

@@ -1,7 +1,8 @@
 "use strict";
 import controller from "./db/controller/dbController";
-const clearDB = async function(){
-  try {      
+
+ const clearDB = async function(){
+  try {   
     const res = await controller.clearTables();
     return res;
   } catch(error) {
@@ -81,14 +82,19 @@ const getCommentsByID = async function(postId){
     }
 }
 
-module.exports = function test(){ (async () => {
-  console.log(await clearDB())
-  console.log(await creatTestUser());
-  console.log(await creatTestPost());
-  console.log(await creatTestComment());
-  console.log(await getallPosts());
-  console.log(await getPostsbyID(1));
-  console.log(await getPostsbyUID(1));
-  console.log(await getAllComments());
-  console.log(await getCommentsByID(1));
-})();}()
+module.exports = {clearDB, creatTestUser, creatTestPost, creatTestComment, getallPosts}
+
+//module.exports = function test(){ (async () => {
+  //console.log(await clearDB())
+ // console.log(await creatTestUser());
+  //console.log(await creatTestPost());
+  //console.log(await creatTestComment());
+  //console.log(await getallPosts());
+  //console.log(await getPostsbyID(1));
+  //console.log(await getPostsbyUID(1));
+  //console.log(await getAllComments());
+  //console.log(await getCommentsByID(1));
+//})();}()
+
+
+
